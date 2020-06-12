@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get '/login' , to: 'sessions#new'
+  post '/login', to: 'sessions#create'
 	resources :users
   get '/signup' ,to: 'users#new'
   get  '/about' ,to: 'static_pages#about'
