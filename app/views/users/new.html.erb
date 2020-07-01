@@ -16,6 +16,9 @@
 		<%= f.label :password_confirmation %>
 		<%= f.password_field :password_confirmation %>
 
+		<%= f.label :profile_picture%>
+		<p><%= f.file_field :image%></p>
+
 		<%= f.submit "create my account" , class: "btn btn-primary" %>
 		<% end %>
 		<p>Already Have an Account? <%= link_to "Login" , login_path%></p>

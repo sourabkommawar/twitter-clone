@@ -1,5 +1,7 @@
 class User < ApplicationRecord
-
+	has_many :microposts, dependent: :destroy
+	has_one_attached :image
+	
 	attr_accessor :remember_token
 
 	VALID_REGEX_EMAIL = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

@@ -10,4 +10,22 @@
 		</section>
 	</aside>
 </div>
-			
+<% if @user.microposts.any? %>
+<div class="row">
+	<ul class="list-group">
+	<% @microposts.each do |microposts| %>
+	<li class="list-group-item">
+		<ul>
+			<li class="list-group-item" > <%= microposts.content %> </li>
+		<li class="list-group-item"> posted <%= time_ago_in_words(microposts.created_at)%> ago</li>
+		<% if current_user.id == microposts.user.id %>
+			<%= link_to "delete" ,micropost_path(microposts.id), method: :delete,
+			data: {confirm: "you sure?" } %>
+
+		<% end %>
+		</ul>
+	</li>
+	<% end %>
+	</ul>
+</div>
+<% end %>		
